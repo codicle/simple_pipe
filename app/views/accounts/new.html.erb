@@ -3,6 +3,13 @@
     <h2>Create an Account</h2>
 
     <%= simple_form_for @account do |f| %>
+    <%= f.fields_for :owner do |o| %>
+      <%= o.input :name, class: "form-control", required: true, label: "Your Name" %>
+      <%= o.input :email, class: "form-control", required: true %>
+      <%= o.input :password, class: "form-control", required: true %>
+      <%= o.input :password_confirmation, class: "form-control", required: true %>
+    <% end %>
+    <%= f.label :subdomain %>
     <div class="input-group">
           <%= f.input :subdomain, class: 'form-control', label: false %>
           <span class="input-group-addon" id="basic-addon2">.simplepipe.xyz</span>
