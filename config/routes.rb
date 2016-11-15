@@ -11,6 +11,7 @@ class SubdomainBlank
 end
 
 Rails.application.routes.draw do
+  resources :contacts
   constraints(SubdomainPresent) do
     root 'contacts#index', as: :subdomain_root
     devise_for :users
